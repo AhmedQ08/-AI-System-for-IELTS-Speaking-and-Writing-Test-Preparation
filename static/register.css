@@ -1,0 +1,93 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    background-image: url(images/login.jpg);
+    background-size: cover;
+}
+.p-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 100px;
+}
+
+
+.c-container-2{
+    height: 455.8px;
+    width: 390px;
+    border: 2px solid white;
+    background-color: white;
+    border-radius: 30px;
+    text-align: center;
+    padding-top: 70px;
+    font-family: sans-serif;
+}
+ ::placeholder {
+        color: #999; /* Placeholder text color */
+    }
+
+.mb-3{
+    margin: 10px;
+    padding-left: 15%;
+    padding-right: 15%;   
+ }
+
+#mb-3-1{
+    border-radius:30px;
+    padding: 4%;
+}
+#mb-3-2{
+    border-radius:30px;
+    padding: 4%;   
+
+}
+#mb-3-3{
+    border-radius:30px;
+    padding: 4%;   
+
+}
+.btn{
+    border-radius: 30px;
+    background-color: black;
+    color: white;
+    padding: 2.5% 25% 2.5% 25%;
+
+}
+.account{
+    float: left;
+    background-color: #cccbc7;
+    border-radius: 30px;
+    margin-left: 5%;
+    padding: 2% 3% 2% 3%;
+}
+a{
+  
+    color: black;
+}
+#mb-3-3:focus,#mb-3-2:focus, #mb-3-1:focus {
+    border-color: grey; /* Change to the desired border color */
+    box-shadow: 0 0 5px grey; /* Change to the desired box-shadow color and properties */
+}
+.c-container-1 {
+    overflow: hidden;
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    transform: translateY(0px);
+    animation: float 6s ease-in-out infinite;
+  }
+  @keyframes float {
+    0% {
+      box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+      transform: translateY(0px);
+    }
+    50% {
+      box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
+      transform: translateY(-20px);
+    }
+    100% {
+      box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+      transform: translateY(0px);
+    }
+  }
+
+  

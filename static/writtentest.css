@@ -1,0 +1,116 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    background-image: url(images/bg.png);
+    background-size: cover;
+    font-family: sans-serif;
+
+}
+.container-1{
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.sub-container-2{
+    border-radius: 10px;
+    height: 400px;
+    width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #E9E9E9;
+
+}
+.child-container-2{
+    border-radius: 10px;
+    height: 200px;
+    max-width: 200px;
+    margin: 20px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#quick-test-button,#intermediate-test-button,#report-button {
+    width: 200px;
+    height: 200px;
+
+}
+.child-container-1{
+    margin: 30px;
+
+    height: 350px;
+    width: max-content;
+    padding: 10px;   
+}
+.arrow{
+    padding-left: 20px;
+}
+
+/* Define animation keyframes */
+@keyframes animateHeading {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply animation to the heading */
+.animated-heading {
+    animation: animateHeading 1s ease-out;
+}
+
+
+
+#go-back-button{
+    background-image: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    animation: gradient 30s ease infinite;
+    background-size: 400% 400%;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+@media screen and (max-width: 767px) {
+    .child-container-1 {
+        margin: 10px; 
+        height: auto; 
+    }
+
+    #go-back-button {
+        position: absolute; 
+        top: 10px; 
+        left: 10px; 
+        margin-left: 10px;
+    }
+
+    .sub-container-2 {
+        flex-direction: column; 
+        align-items: center; 
+        width: 100%; 
+        height: auto; 
+    }
+
+    .child-container-2 {
+        width: 80%; 
+        margin: 10px auto; 
+    }
+}
