@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/dash.css">
+</head>
+<body>
+    <main>
+        <div class="container-1" id="container-1">
+            <div class="items item-1-container" id="item-1">
+                <div class="sub-items" id="sub-item-1">
+                    <div>
+                        {% if user_data.profile_picture %}
+                        <img height="100px" width="100px" src="{{ url_for('profile_picture', user_id=user_data._id) }}" alt="Profile Picture" style="border-radius: 50%;">                    
+                      {% else %}
+                        <img height="100px" width="100px" src="{{ url_for('static', filename='images/user.png') }}" alt="Default Profile Picture">
+                      {% endif %}
+                        <div class="profile-name" id="">
+                            <a href="{{ url_for('settings')}}">{{email}}</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-items" id="sub-item-2">
+                    <a href="{{ url_for('interview') }}"><i class="fa fa-desktop" aria-hidden="true"></i>Interview</a>
+                </div>
+                <div class="sub-items" id="sub-item-3">
+                    <a href="{{ url_for('writtentest') }}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Written Test</a>
+                </div>
+                
+                <div class="sub-items" id="sub-item-5">
+                    <a id="st-lnk" href="{{ url_for('settings') }}"><i class="fa fa-cog" aria-hidden="true"></i>Settings</a>
+                </div>
+                <div class="sub-items" id="sub-item-5">
+                  <a id="logout-lnk" href="#" data-bs-toggle="modal" data-bs-target="#logoutModal"><i class="fa fa-sign-out"></i>Log out</a>
+              </div>
+            </div>
+            <div class="items" id="item-2"><img src="/static/images/interview.jpg" alt=""></div>
+        </div>
+    </main>
+    <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="logoutModalLabel">Confirm Logout</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  Are you sure you want to logout?
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                  <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+    <script src="/static/js/settings.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+   
+</body>
+</html>
+

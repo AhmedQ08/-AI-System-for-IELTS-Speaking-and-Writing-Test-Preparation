@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MOCK.AI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/index.css">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+  </head>
+  <body>
+    <main>
+    <div class="section-1">
+        <nav>
+            <div class="logo-text">
+                <a href="#">MOCK.AI</a>
+            </div>
+                <!-- ... your existing HTML ... -->
+            <div class="nav-content">
+                 <!-- Hamburger menu button -->
+                <div class="menu-btn" onclick="toggleNav()">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+    
+            <div class="nav-content-1">
+                <a href="#">Services</a>
+                <a href="#">Our Mission</a>
+                <a href="#container-4">Contact Us</a>
+            </div>
+            <div class="nav-content-2">
+                <a href="/login"><button type="button" class="btn btn-outline-dark">Join Us</button></a>
+            </div>
+    
+        </nav>
+        <section>
+            <div class="container">
+                <div class="sub" id="sub-1"><h2>Improve Your</h2></div>
+                <div class="sub" id="sub-2"><p>Speaking Ability</p></div>
+                <div class="sub" id="sub-3"><p>With AI</p></div>
+                <div class="sub" id="sub-4"><p>Tailored digital solutions for highly specialized that help boost your operations</p></div>
+                <div class="sub" id ="sub-5"><a href="/login"><button type="button" class="btn btn-outline-dark">Join Us</button></a></div>
+            </div>
+        </section>
+    </div>
+        <section>
+            <div class="container-2">
+                <div class="count" id="count-1"><h1>With AI it’s Possible</h1></div>
+                <div class="count" id="count-2">
+                    <div class="sub-count" id="sub-count-1">
+                        <img src="/static/images/ai 1.png"  width="90%" alt="">
+                    </div>
+                    <div class="sub-count" id="sub-count-2">
+                        <hr>
+                        <h1>Artificial Intelligence The Spark that Ignites Endless Possibilities</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container-3">
+                <!-- Flickity HTML init -->
+                <div class="carousel" data-flickity='{ "wrapAround": true }'>
+                  <div class="carousel-cell">
+                    <img src="/static/images/slider1.png" width="100%" alt="">
+                  </div>
+                  <div class="carousel-cell">
+                    <img src="/static/images/slider2.png" alt="">
+                  </div>
+                </div>
+            </div>
+        </section>
+        <section>
+                <div class="container-4" id="container-4">
+                    <div class="count-5">
+                        <h1>Contact Us</h1>
+                    </div>
+                    <div class="count-4">
+                        <form action="/submit_feedback" method="post">
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Enter Name</label>
+                                <input name="name" type="text" class="form-control" placeholder="Name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label">Feedback</label>
+                                <textarea name="feedback" class="form-control" rows="3" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="/static/js/index.js"></script>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+  </body>
+</html>
+
+
+

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Discussion Interview</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="/static/discussionInterview.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body onload="startTimer()">
+    <div
+      class="modal fade"
+      id="containerModal"
+      tabindex="-1"
+      aria-labelledby="containerModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-body">
+            <h4>Task Instructions</h4>
+            <p> You have just 5 minutes to discuss</p>
+            <p>
+              Introduction: Begin by introducing the topic of discussion.
+              Provide a brief overview or background information to set the
+              context for the conversation.
+            </p>
+
+            <p>
+              Main Points: Outline the main points or arguments related to the
+              topic. You can present both sides of the argument if it's a
+              debate-style topic, or simply list the key aspects to be
+              discussed.
+            </p>
+
+            <p>
+              Examples: Provide examples, anecdotes, or evidence to support each
+              of the main points you've outlined. These examples can help
+              illustrate your arguments and make your discussion more
+              compelling.
+            </p>
+
+            <p>
+              Personal Opinion: Optionally, you can express your personal
+              opinion on the topic. Make sure to clearly state your viewpoint
+              and provide reasons or arguments to support it.
+            </p>
+
+            <p>
+              Discussion: Encourage further discussion by asking questions or
+              inviting the other participants to share their opinions and
+              perspectives on the topic. This helps to engage the examiner or
+              other test takers in a meaningful conversation.
+            </p>
+
+            <p>
+              Conclusion: Summarize the key points discussed and reiterate any
+              conclusions or insights that were reached during the discussion.
+              End on a positive note, perhaps by expressing hope for further
+              exploration of the topic.
+            </p>
+
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="startTimer()"
+            >
+              Start Timer
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="written-test">
+      <h2><span id="written-test"> INTERVIEW TEST</span></h2>
+    </div>
+    <div class="outer_container">
+      <div class="time"><span id="timer">01:00</span></div>
+      <h3>Record Your answer atleast 250 seconds</h3>
+      <br /><br /><br />
+      <h2>Question</h2>
+      <br />
+      <audio controls >
+        <source src="./static/audio/statement.wav" type="audio/wav" />
+      </audio>
+      <br /><br />
+      <div>
+        <h1>Audio Recorder</h1>
+        <br /><br />
+        <div class="audio-button">
+          <button type="button" class="btn btn-outline-light" id="startButton">
+            Start Rocording
+          </button>
+          <button type="button" class="btn btn-outline-light" id="stopButton">
+            Stop Rocording
+          </button>
+        </div>
+        <form
+          id="audioForm"
+          action="{{url_for('discussioninterview')}}"
+          method="POST"
+        >
+          <div class="mb-3"><br /><br /></div>
+          <button id="submitBtn" type="submit" class="btn btn-outline-light">
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+    <script src="/static/js/discussioninterview.js"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

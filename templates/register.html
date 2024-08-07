@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOCK.AI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/register.css">
+</head>
+<body>
+    <main>
+        <section>
+            {% with messages = get_flashed_messages(with_categories=true) %} {% if
+                messages %}
+                <div class="container sticky-top">
+                  {% for category, message in messages %}
+                  <div
+                    class="alert alert-{{ category }} d-flex align-items-center alert-dismissible fade show px-md-5"
+                    role="alert"
+                  >
+                    <h4 class="h4">{{ message }}</h4>
+                    <button
+                      type="button"
+                      class="btn-close py-md-4 px-md-5 fw-bold"
+                      data-bs-dismiss="alert"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  {% endfor %}
+                </div>
+                {% endif %} {% endwith %}
+            <div class="p-container">
+                <div class="c-container-1" >
+                    <img src="/static/images/ai bot 1.png" alt="" width="390px" height="455.8px">
+                </div>
+                <div class="c-container-2">
+                    <h2>Sign Up</h2>
+                    <form action="{{url_for('register')}}" method="POST">
+                        <div class="mb-3">
+                            <input id="mb-3-1" name="username" type="text" class="form-control" id="exampleInputEmail1" placeholder="user name" required aria-describedby="emailHelp">
+                          </div>
+                        <div class="mb-3">
+                          <input id="mb-3-2" name="email" type="email" class="form-control" id="exampleInputEmail1" placeholder="abc@gmail.com" required aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                          <input id="mb-3-3" name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-outline-dark">Submit</button>
+                    </form>
+                    <br><br>
+                    <div class="account">
+                      Already Register? &nbsp;<a href="/login">Log In</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>

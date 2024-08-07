@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="/static/quicktestboard.css">
+</head>
+<body onload="startTimer()">
+    <!-- Instructions Modal -->
+    <div class="modal fade" id="containerModal" tabindex="-1" aria-labelledby="containerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h4>Task Instructions</h4>
+                    <p>it's recommended to spend about 20 minutes on your response. This allows enough time to carefully analyze the visual data, plan your response, write your description, and review your work for any errors. Efficient time management is crucial in ensuring that you can complete both Task 1 and Task 2 within the allotted time frame of the writing test. </p><br>
+                    <p>Begin by carefully reading the instructions and the information provided in the task prompt. Task 1 typically involves interpreting and describing visual data such as graphs, charts, tables, or diagrams.</p><br>
+                    <p>Spend a few moments analyzing the visual data to identify the key trends, comparisons, or significant features. Your overview should provide a summary of the main points without going into too much detail.</p><br>
+                    <p> Start your response with a brief introduction that paraphrases the task prompt and provides an overview of the visual data you will be describing. This sets the context for your analysis.
+                    </p><br>
+                    <p>Use a range of vocabulary to accurately describe the visual data. This includes words and phrases for describing trends (e.g., "increase", "decrease", "fluctuate"), comparisons (e.g., "higher than", "lower than", "similar to"), and relationships (e.g., "correlated with", "inversely proportional to").</p><br>
+                    <p>Structure your response logically, with clear paragraphs that focus on different aspects of the visual data. Use transition words and phrases to guide the reader through your analysis.</p><br>
+                    <p>t's recommended to spend about 20 minutes on your response. This allows enough time to carefully analyze the visual data, plan your response, write your description, and review your work for any errors. Efficient time management is crucial in ensuring that you can complete both Task 1 and Task 2 within the allotted time frame of the writing test. </p><br>
+                    <button type="button" class="btn btn-primary" onclick="startTimer()">Start Timer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="written-test">
+        <h2><span id ="written-test"> WRITTING TEST</span></h2>
+    </div>
+    <div class="outer_container">
+        
+        <div class="time"><span id="timer">20:00</span></div>
+        <p id="statement">{{response.statement}}</p>
+
+        <h2>Graph:</h2>
+        <div style="width:500px!important; height:400px!important">
+            <canvas id="myChart" width="400" height="400"></canvas>
+        </div>
+        <div>
+            <form action="{{url_for('quicktestboard')}}" method="POST" onsubmit="showLoader()">
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label"><h3>Write Answer Here</h3></label>
+                    <textarea name="ans" class="form-control" rows="3" required></textarea>
+                    <textarea name="prev_response" class="form-control" rows="3" hidden>{{response}}</textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="loader" class="loader hidden"></div>
+    <div id="overlay" class="overlay hidden"></div>
+
+    <script>
+        
+        document.addEventListener("DOMContentLoaded", function () {
+            // Fetch chart data from the backend
+            var data = {{ response | tojson }};
+            console.log(data)
+            // Check if data is valid
+            if (data && data['X-Axis Range'] && data.Values) {
+                renderChart(data['X-Axis Range'], data.Values, data['Y-Axis Range']);
+            } else {
+                console.error('Invalid chart data:', data);
+            }
+            
+            // Function to render the Chart.js graph
+            function renderChart(labels, values, yAxisRange) {
+                var ctx = document.getElementById('myChart').getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Chart Data',
+                            data: values,
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    stepSize: 1000,
+                                    min: yAxisRange[0],
+                                    max: yAxisRange[yAxisRange.length - 1]
+                                }
+                            },
+                            x: {
+                                ticks: {
+                                    minRotation: 0,
+                                    maxRotation: 90
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        });
+        
+    </script>
+    <script src="/static/js/quicktestboard.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
